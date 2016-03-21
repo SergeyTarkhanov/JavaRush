@@ -16,11 +16,10 @@ public class Solution {
     public volatile static int COUNT = 4;
 
     public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < COUNT; i++)
-        {
+        for (int i = 0; i < COUNT; i++) {
+            //напишите тут ваш код
             Thread thread = new SleepingThread();
             thread.join();
-            //напишите тут ваш код
         }
     }
 
@@ -34,18 +33,16 @@ public class Solution {
         }
 
         public void run() {
-            //add sleep here - добавь sleep тут
-            try{
-                    while (true) {
-                        System.out.println(this);
-                        if (--countDownIndex == 0) return;
-                        Thread.sleep(10);
-                    }
-                }
-                catch (InterruptedException e)
-                {
+            while (true) {
+                System.out.println(this);
+                if (--countDownIndex == 0) return;
+                //add sleep here - добавь sleep тут
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
                     System.out.println("Нить прервана");
                 }
+            }
         }
 
         public String toString() {
