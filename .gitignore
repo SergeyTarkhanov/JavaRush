@@ -2,6 +2,7 @@ out/
 .idea/
 *.iml
 *.md
+*.properties
 *.project
 *.classpath
 *.settings
